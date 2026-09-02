@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koine Greek Participles – Complete Memory Chart</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --accent: #1e40af;
+      --active: #1d4ed8;
+      --middle: #0f766e;
+      --passive: #7c3aed;
+      --perfect: #b45309;
+      --header-bg: #0f172a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    header { text-align: center; margin-bottom: 2rem; }
+
+    h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--header-bg);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35rem;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    .instruction {
+      background: #eff6ff;
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 2rem;
+      font-size: 0.98rem;
+    }
+
+    .instruction strong { color: var(--accent); }
+
+    /* Summary Table */
+    .table-wrapper {
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.93rem;
+    }
+
+    thead { background: var(--header-bg); color: white; }
+
+    th {
+      padding: 0.85rem 0.9rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 0.75rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: #f1f5f9; }
+
+    .tense { font-weight: 600; white-space: nowrap; }
+    .greek { font-family: 'Times New Roman', Georgia, serif; font-size: 1.05rem; }
+    .marker { font-family: Consolas, Monaco, monospace; font-size: 0.88rem; color: var(--muted); }
+    .notes { font-size: 0.85rem; color: var(--muted); }
+
+    .cat-active .tense { color: var(--active); }
+    .cat-middle .tense { color: var(--middle); }
+    .cat-passive .tense { color: var(--passive); }
+    .cat-perfect .tense { color: var(--perfect); }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.12rem 0.4rem;
+      border-radius: 999px;
+      margin-left: 0.35rem;
+      vertical-align: middle;
+    }
+    .badge-active { background: #dbeafe; color: #1e40af; }
+    .badge-middle { background: #ccfbf1; color: #0f766e; }
+    .badge-passive { background: #ede9fe; color: #6d28d9; }
+    .badge-perfect { background: #ffedd5; color: #c2410c; }
+
+    /* Expandable sections */
+    .details-section {
+      margin-bottom: 1.25rem;
+    }
+
+    details {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgb(0 0 0 / 0.05);
+    }
+
+    details[open] { box-shadow: 0 4px 12px rgb(0 0 0 / 0.08); }
+
+    summary {
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.05rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      user-select: none;
+      transition: background 0.15s;
+    }
+
+    summary:hover { background: #f8fafc; }
+    summary::-webkit-details-marker { display: none; }
+
+    summary::before {
+      content: "▸";
+      font-size: 0.9rem;
+      color: var(--muted);
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::before { transform: rotate(90deg); }
+
+    .summary-active { color: var(--active); }
+    .summary-middle { color: var(--middle); }
+    .summary-passive { color: var(--passive); }
+    .summary-perfect { color: var(--perfect); }
+
+    .example-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-left: auto;
+    }
+
+    .detail-content {
+      padding: 0 1.25rem 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .paradigm-table {
+      width: 100%;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .paradigm-table th {
+      background: #f1f5f9;
+      color: var(--text);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.6rem 0.7rem;
+    }
+
+    .paradigm-table td {
+      padding: 0.55rem 0.7rem;
+      border-bottom: 1px solid var(--border);
+      font-family: 'Times New Roman', Georgia, serif;
+      font-size: 1.02rem;
+    }
+
+    .paradigm-table tr:last-child td { border-bottom: none; }
+    .paradigm-table .case-label {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      width: 70px;
+    }
+
+    .tip {
+      margin-top: 0.9rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      background: #f8fafc;
+      padding: 0.7rem 1rem;
+      border-radius: 6px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1.25rem;
+      color: var(--header-bg);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.4rem;
+    }
+
+    .summary-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.1rem;
+      margin-top: 2.5rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.15rem;
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 1.2rem 0.7rem 3rem; }
+      h1 { font-size: 1.5rem; }
+      th, td { padding: 0.6rem 0.5rem; font-size: 0.85rem; }
+      .greek { font-size: 0.95rem; }
+      summary { font-size: 0.98rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Koine Greek Participles</h1>
+      <p class="subtitle">Complete Memory-Oriented Master Chart with Full Paradigms</p>
+    </header>
+
+    <div class="instruction">
+      <strong>How to use:</strong> Memorize the Nominative Singular (M/F/N) + Genitive Singular (M/F/N) first.  
+      Click any row below to expand the <strong>full paradigm</strong> with a real example word.  
+      All other forms follow regular <strong>3-1-3</strong> or <strong>2-1-2</strong> endings.
+    </div>
+
+    <!-- SUMMARY TABLE -->
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Tense / Voice</th>
+            <th>Nom. Sg. M / F / N</th>
+            <th>Gen. Sg. M / F / N</th>
+            <th>Key Markers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="cat-active">
+            <td class="tense">Present Active <span class="badge badge-active">3-1-3</span></td>
+            <td class="greek">-ων / -ουσα / -ον</td>
+            <td class="greek">-οντος / -ουσης / -οντος</td>
+            <td class="marker">-οντ- / -ουσα</td>
+          </tr>
+          <tr class="cat-middle">
+            <td class="tense">Present Mid/Pass <span class="badge badge-middle">2-1-2</span></td>
+            <td class="greek">-όμενος / -ομένη / -όμενον</td>
+            <td class="greek">-ομένου / -ομένης / -ομένου</td>
+            <td class="marker">-ομεν-</td>
+          </tr>
+          <tr class="cat-active">
+            <td class="tense">1st Aorist Active <span class="badge badge-active">3-1-3</span></td>
+            <td class="greek">-σας / -σασα / -σαν</td>
+            <td class="greek">-σαντος / -σασης / -σαντος</td>
+            <td class="marker">-σαντ- / -σασα</td>
+          </tr>
+          <tr class="cat-middle">
+            <td class="tense">1st Aorist Middle <span class="badge badge-middle">2-1-2</span></td>
+            <td class="greek">-σάμενος / -σαμένη / -σάμενον</td>
+            <td class="greek">-σαμένου / -σαμένης / -σαμένου</td>
+            <td class="marker">-σαμεν-</td>
+          </tr>
+          <tr class="cat-passive">
+            <td class="tense">1st Aorist Passive <span class="badge badge-passive">3-1-3</span></td>
+            <td class="greek">-θείς / -θεῖσα / -θέν</td>
+            <td class="greek">-θέντος / -θείσης / -θέντος</td>
+            <td class="marker">-θεντ- / -θεισα</td>
+          </tr>
+          <tr class="cat-active">
+            <td class="tense">2nd Aorist Active <span class="badge badge-active">3-1-3</span></td>
+            <td class="greek">-ών / -οῦσα / -όν</td>
+            <td class="greek">-όντος / -ούσης / -όντος</td>
+            <td class="marker">aorist stem + -οντ-</td>
+          </tr>
+          <tr class="cat-middle">
+            <td class="tense">2nd Aorist Middle <span class="badge badge-middle">2-1-2</span></td>
+            <td class="greek">-όμενος / -ομένη / -όμενον</td>
+            <td class="greek">-ομένου / -ομένης / -ομένου</td>
+            <td class="marker">aorist stem + -ομεν-</td>
+          </tr>
+          <tr class="cat-passive">
+            <td class="tense">2nd Aorist Passive <span class="badge badge-passive">3-1-3</span></td>
+            <td class="greek">-είς / -εῖσα / -έν</td>
+            <td class="greek">-έντος / -είσης / -έντος</td>
+            <td class="marker">aorist stem + -εντ-</td>
+          </tr>
+          <tr class="cat-perfect">
+            <td class="tense">Perfect Active <span class="badge badge-perfect">3-1-3</span></td>
+            <td class="greek">-κώς / -κυῖα / -κός</td>
+            <td class="greek">-κότος / -κυίας / -κότος</td>
+            <td class="marker">redup + -κοτ- / -κυια</td>
+          </tr>
+          <tr class="cat-perfect">
+            <td class="tense">Perfect Mid/Pass <span class="badge badge-perfect">2-1-2</span></td>
+            <td class="greek">-μένος / -μένη / -μένον</td>
+            <td class="greek">-μένου / -μένης / -μένου</td>
+            <td class="marker">redup + -μεν-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FULL PARADIGMS -->
+    <h2>Full Paradigms (click to expand)</h2>
+
+    <!-- 1. Present Active -->
+    <div class="details-section">
+      <details>
+        <summary class="summary-active">
+          Present Active
+          <span class="example-label">λύων (from λύω)</span>
+        </summary>
+        <div class="detail-content">
+          <table class="paradigm-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Masculine</th>
+                <th>Feminine</th>
+                <th>Neuter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="case-label">Nom Sg</td><td>λύων</td><td>λύουσα</td><td>λῦον</td></tr>
+              <tr><td class="case-label">Gen Sg</td><td>λύοντος</td><td>λυούσης</td><td>λύοντος</td></tr>
+              <tr><td class="case-label">Dat Sg</td><td>λύοντι</td><td>λυούσῃ</td><td>λύοντι</td></tr>
+              <tr><td class="case-label">Acc Sg</td><td>λύοντα</td><td>λύουσαν</td><td>λῦον</td></tr>
+              <tr><td class="case-label">Nom Pl</td><td>λύοντες</td><td>λύουσαι</td><td>λύοντα</td></tr>
+              <tr><td class="case-label">Gen Pl</td><td>λυόντων</td><td>λυουσῶν</td><td>λυόντων</td></tr>
+              <tr><td class="case-label">Dat Pl</td><td>λύουσι(ν)</td><td>λυούσαις</td><td>λύουσι(ν)</td></tr>
+              <tr><td class="case-label">Acc Pl</td><td>λύοντας</td><td>λυούσας</td><td>λύοντα</td></tr>
+            </tbody>
+          </table>
+          <div class="tip">3-1-3 pattern. Memory forms: <strong>λύων, λύουσα, λῦον / λύοντος, λυούσης, λύοντος</strong></div>
+        </div>
+      </details>
+    </div>
+
+    <!-- 2. Present Mid/Pass -->
+    <div class="details-section">
+      <details>
+        <summary class="summary-middle">
+          Present Middle / Passive
+          <span class="example-label">λυόμενος (from λύω)</span>
+        </summary>
+        <div class="detail-content">
+          <table class="paradigm-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Masculine</th>
+                <th>Feminine</th>
+                <th>Neuter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="case-label">Nom Sg</td><td>λυόμενος</td><td>λυομένη</td><td>λυόμενον</td></tr>
+              <tr><td class="case-label">Gen Sg</td><td>λυομένου</td><td>λυομένης</td><td>λυομένου</td></tr>
+              <tr><td class="case-label">Dat Sg</td><td>λυομένῳ</td><td>λυομένῃ</td><td>λυομένῳ</td></tr>
+              <tr><td class="case-label">Acc Sg</td><td>λυόμενον</td><td>λυομένην</td><td>λυόμενον</td></tr>
+              <tr><td class="case-label">Nom Pl</td><td>λυόμενοι</td><td>λυόμεναι</td><td>λυόμενα</td></tr>
+              <tr><td class="case-label">Gen Pl</td><td>λυομένων</td><td>λυομένων</td><td>λυομένων</td></tr>
+              <tr><td class="case-label">Dat Pl</td><td>λυομένοις</td><td>λυομέναις</td><td>λυομένοις</td></tr>
+              <tr><td class="case-label">Acc Pl</td><td>λυομένους</td><td>λυομένας</td><td>λυόμενα</td></tr>
+            </tbody>
+          </table>
+          <div class="tip">2-1-2 pattern. Memory forms: <strong>λυόμενος, λυομένη, λυόμενον / λυομένου, λυομένης, λυομένου</strong></div>
+        </div>
+      </details>
+    </div>
+
+    <!-- 3. 1st Aorist Active -->
+    <div class="details-section">
+      <details>
+        <summary class="summary-active">
+          1st Aorist Active
+          <span class="example-label">λύσας (from λύω)</span>
+        </summary>
+        <div class="detail-content">
+          <table class="paradigm-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Masculine</th>
+                <th>Feminine</th>
+                <th>Neuter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="case-label">Nom Sg</td><td>λύσας</td><td>λύσασα</td><td>λῦσαν</td></tr>
+              <tr><td class="case-label">Gen Sg</td><td>λύσαντος</td><td>λυσάσης</td><td>λύσαντος</td></tr>
+              <tr><td class="case-label">Dat Sg</td><td>λύσαντι</td><td>λυσάσῃ</td><td>λύσαντι</td></tr>
+              <tr><td class="case-label">Acc Sg</td><td>λύσαντα</td><td>λύσασαν</td><td>λῦσαν</td></tr>
+              <tr><td class="case-label">Nom Pl</td><td>λύσαντες</td><td>λύσασαι</td><td>λύσαντα</td></tr>
+              <tr><td class="case-label">Gen Pl</td><td>λυσάντων</td><td>λυσασῶν</td><td>λυσάντων</td></tr>
+              <tr><td class="case-label">Dat Pl</td><td>λύσασι(ν)</td><td>λυσάσαις</td><td>λύσασι(ν)</td></tr>
+              <tr><td class="case-label">Acc Pl</td><td>λύσαντας</td><td>λυσάσας</td><td>λύσαντα</td></tr>
+            </tbody>
+          </table>
+          <div class="tip">3-1-3 pattern. Memory forms: <strong>λύσας, λύσασα, λῦσαν / λύσαντος, λυσάσης, λύσαντος</strong></div>
+        </div>
+      </details>
+    </div>
+
+    <!-- 4. 1st Aorist Middle -->
+    <div class="details-section">
+      <details>
+        <summary class="summary-middle">
+          1st Aorist Middle
+          <span class="example-label">λυσάμενος (from λύω)</span>
+        </summary>
+        <div class="detail-content">
+          <table class="paradigm-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Masculine</th>
+                <th>Feminine</th>
+                <th>Neuter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="case-label">Nom Sg</td><td>λυσάμενος</td><td>λυσαμένη</td><td>λυσάμενον</td></tr>
+              <tr><td class="case-label">Gen Sg</td><td>λυσαμένου</td><td>λυσαμένης</td><td>λυσαμένου</td></tr>
+              <tr><td class="case-label">Dat Sg</td><td>λυσαμένῳ</td><td>λυσαμένῃ</td><td>λυσαμένῳ</td></tr>
+              <tr><td class="case-label">Acc Sg</td><td>λυσάμενον</td><td>λυσαμένην</td><td>λυσάμενον</td></tr>
+              <tr><td class="case-label">Nom Pl</td><td>λυσάμενοι</td><td>λυσάμεναι</td><td>λυσάμενα</td></tr>
+              <tr><td class="case-label">Gen Pl</td><td>λυσαμένων</td><td>λυσαμένων</td><td>λυσαμένων</td></tr>
+              <tr><td class="case-label">Dat Pl</td><td>λυσαμένοις</td><td>λυσαμέναις</td><td>λυσαμένοις</td></tr>
+              <tr><td class="case-label">Acc Pl</td><td>λυσαμένους</td><td>λυσαμένας</td><td>λυσάμενα</td></tr>
+            </tbody>
+          </table>
+          <div class="tip">2-1-2 pattern. Memory forms: <strong>λυσάμενος, λυσαμένη, λυσάμενον / λυσαμένου, λυσαμένης, λυσαμένου</strong></div>
+        </div>
+      </details>
+    </div>
+
+    <!-- 5. 1st Aorist Passive -->
+    <div class="details-section">
+      <details>
+        <summary class="summary-passive">
+          1st Aorist Passive
+          <span class="example-label">λυθείς (from λύω)</span>
+        </summary>
+        <div class="detail-content">
+          <table class="paradigm-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Masculine</th>
+                <th>Feminine</th>
+                <th>Neuter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="case-label">Nom Sg</td><td>λυθείς</td><td>λυθεῖσα</td><td>λυθέν</td></tr>
+              <tr><td class="case-label">Gen Sg</td><td>λυθέντος</td><td>λυθείσης</td><td>λυθέντος</td></tr>
+              <tr><td class="case-label">Dat Sg</td><td>λυθέντι</td><td>λυθείσῃ</td><td>λυθέντι</td></tr>
+              <tr><td class="case-label">Acc Sg</td><td>λυθέντα</td><td>λυθεῖσαν</td><td>λυθέν</td></tr>
+              <tr><td class="case-label">Nom Pl</td><td>λυθέντες</td><td>λυθεῖσαι</td><td>λυθέντα</td></tr>
+              <tr><td class="case-label">Gen Pl</td><td>λυθέντων</td><td>λυθεισῶν</td><td>λυθέντων</td></tr>
+              <tr><td class="case-label">Dat Pl</td><td>λυθεῖσι(ν)</td><td>λυθείσαις</td><td>λυθεῖσι(ν)</td></tr>
+              <tr><td class="case-label">Acc Pl</td><td>λυθέντας</td><td>λυθείσας</td><td>λυθέντα</td></tr>
+            </tbody>
+          </table>
+          <div class="tip">3-1-3 pattern. Memory forms: <strong>λυθείς, λυθεῖσα, λυθέν / λυθέντος, λυθείσης, λυθέντος</strong></div>
+        </div>
+      </details>
+    </div>
+
+    <!-- 6. 2nd Aorist Active -->
+    <div class="details-section">
+      <details>
+        <summary class="summary-active">
+          2nd Aorist Active
+          <span class="example-label">βαλών (from βάλλω)</span>
+        </summary>
+        <div class="detail-content">
+          <table class="paradigm-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Masculine</th>
+                <th>Feminine</th>
+                <th>Neuter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="case-label">Nom Sg</td><td>βαλών</td><td>βαλοῦσα</td><td>βαλόν</td></tr>
+              <tr><td class="case-label">Gen Sg</td><td>βαλόντος</td><td>βαλούσης</td><td>βαλόντος</td></tr>
+              <tr><td class="case-label">Dat Sg</td><td>βαλόντι</td><td>βαλούσῃ</td><td>βαλόντι</td></tr>
+              <tr><td class="case-label">Acc Sg</td><td>βαλόντα</td><td>βαλοῦσαν</td><td>βαλόν</td></tr>
+              <tr><td class="case-label">Nom Pl</td><td>βαλόντες</td><td>βαλοῦσαι</td><td>βαλόντα</td></tr>
+              <tr><td class="case-label">Gen Pl</td><td>βαλόντων</td><td>βαλουσῶν</td><td>βαλόντων</td></tr>
+              <tr><td class="case-label">Dat Pl</td><td>βαλοῦσι(ν)</td><td>βαλούσαις</td><td>βαλοῦσι(ν)</td></tr>
+              <tr><td class="case-label">Acc Pl</td><td>βαλόντας</td><td>βαλούσας</td><td>βαλόντα</td></tr>
+            </tbody>
+          </table>
+          <div class="tip">Same endings as Present Active, but uses the <strong>aorist stem</strong>. Memory forms look identical to Present Active.</div>
+        </div>
+      </details>
+    </div>
+
+    <!-- 7. 2nd Aorist Middle -->
+    <div class="details-section">
+      <details>
+        <summary class="summary-middle">
+          2nd Aorist Middle
+          <span class="example-label">γενόμενος (from γίνομαι)</span>
+        </summary>
+        <div class="detail-content">
+          <table class="paradigm-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Masculine</th>
+                <th>Feminine</th>
+                <th>Neuter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="case-label">Nom Sg</td><td>γενόμενος</td><td>γενομένη</td><td>γενόμενον</td></tr>
+              <tr><td class="case-label">Gen Sg</td><td>γενομένου</td><td>γενομένης</td><td>γενομένου</td></tr>
+              <tr><td class="case-label">Dat Sg</td><td>γενομένῳ</td><td>γενομένῃ</td><td>γενομένῳ</td></tr>
+              <tr><td class="case-label">Acc Sg</td><td>γενόμενον</td><td>γενομένην</td><td>γενόμενον</td></tr>
+              <tr><td class="case-label">Nom Pl</td><td>γενόμενοι</td><td>γενόμεναι</td><td>γενόμενα</td></tr>
+              <tr><td class="case-label">Gen Pl</td><td>γενομένων</td><td>γενομένων</td><td>γενομένων</td></tr>
+              <tr><td class="case-label">Dat Pl</td><td>γενομένοις</td><td>γενομέναις</td><td>γενομένοις</td></tr>
+              <tr><td class="case-label">Acc Pl</td><td>γενομένους</td><td>γενομένας</td><td>γενόμενα</td></tr>
+            </tbody>
+          </table>
+          <div class="tip">Same endings as Present Mid/Pass, but uses the <strong>aorist stem</strong>.</div>
+        </div>
+      </details>
+    </div>
+
+    <!-- 8. 2nd Aorist Passive -->
+    <div class="details-section">
+      <details>
+        <summary class="summary-passive">
+          2nd Aorist Passive
+          <span class="example-label">γραφείς (from γράφω)</span>
+        </summary>
+        <div class="detail-content">
+          <table class="paradigm-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Masculine</th>
+                <th>Feminine</th>
+                <th>Neuter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="case-label">Nom Sg</td><td>γραφείς</td><td>γραφεῖσα</td><td>γραφέν</td></tr>
+              <tr><td class="case-label">Gen Sg</td><td>γραφέντος</td><td>γραφείσης</td><td>γραφέντος</td></tr>
+              <tr><td class="case-label">Dat Sg</td><td>γραφέντι</td><td>γραφείσῃ</td><td>γραφέντι</td></tr>
+              <tr><td class="case-label">Acc Sg</td><td>γραφέντα</td><td>γραφεῖσαν</td><td>γραφέν</td></tr>
+              <tr><td class="case-label">Nom Pl</td><td>γραφέντες</td><td>γραφεῖσαι</td><td>γραφέντα</td></tr>
+              <tr><td class="case-label">Gen Pl</td><td>γραφέντων</td><td>γραφεισῶν</td><td>γραφέντων</td></tr>
+              <tr><td class="case-label">Dat Pl</td><td>γραφεῖσι(ν)</td><td>γραφείσαις</td><td>γραφεῖσι(ν)</td></tr>
+              <tr><td class="case-label">Acc Pl</td><td>γραφέντας</td><td>γραφείσας</td><td>γραφέντα</td></tr>
+            </tbody>
+          </table>
+          <div class="tip">3-1-3 pattern. No θ. Memory forms: <strong>γραφείς, γραφεῖσα, γραφέν / γραφέντος, γραφείσης, γραφέντος</strong></div>
+        </div>
+      </details>
+    </div>
+
+    <!-- 9. Perfect Active -->
+    <div class="details-section">
+      <details>
+        <summary class="summary-perfect">
+          Perfect Active
+          <span class="example-label">λελυκώς (from λύω)</span>
+        </summary>
+        <div class="detail-content">
+          <table class="paradigm-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Masculine</th>
+                <th>Feminine</th>
+                <th>Neuter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="case-label">Nom Sg</td><td>λελυκώς</td><td>λελυκυῖα</td><td>λελυκός</td></tr>
+              <tr><td class="case-label">Gen Sg</td><td>λελυκότος</td><td>λελυκυίας</td><td>λελυκότος</td></tr>
+              <tr><td class="case-label">Dat Sg</td><td>λελυκότι</td><td>λελυκυίᾳ</td><td>λελυκότι</td></tr>
+              <tr><td class="case-label">Acc Sg</td><td>λελυκότα</td><td>λελυκυῖαν</td><td>λελυκός</td></tr>
+              <tr><td class="case-label">Nom Pl</td><td>λελυκότες</td><td>λελυκυῖαι</td><td>λελυκότα</td></tr>
+              <tr><td class="case-label">Gen Pl</td><td>λελυκότων</td><td>λελυκυιῶν</td><td>λελυκότων</td></tr>
+              <tr><td class="case-label">Dat Pl</td><td>λελυκόσι(ν)</td><td>λελυκυίαις</td><td>λελυκόσι(ν)</td></tr>
+              <tr><td class="case-label">Acc Pl</td><td>λελυκότας</td><td>λελυκυίας</td><td>λελυκότα</td></tr>
+            </tbody>
+          </table>
+          <div class="tip">3-1-3 pattern + reduplication. Memory forms: <strong>λελυκώς, λελυκυῖα, λελυκός / λελυκότος, λελυκυίας, λελυκότος</strong></div>
+        </div>
+      </details>
+    </div>
+
+    <!-- 10. Perfect Mid/Pass -->
+    <div class="details-section">
+      <details>
+        <summary class="summary-perfect">
+          Perfect Middle / Passive
+          <span class="example-label">λελυμένος (from λύω)</span>
+        </summary>
+        <div class="detail-content">
+          <table class="paradigm-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Masculine</th>
+                <th>Feminine</th>
+                <th>Neuter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="case-label">Nom Sg</td><td>λελυμένος</td><td>λελυμένη</td><td>λελυμένον</td></tr>
+              <tr><td class="case-label">Gen Sg</td><td>λελυμένου</td><td>λελυμένης</td><td>λελυμένου</td></tr>
+              <tr><td class="case-label">Dat Sg</td><td>λελυμένῳ</td><td>λελυμένῃ</td><td>λελυμένῳ</td></tr>
+              <tr><td class="case-label">Acc Sg</td><td>λελυμένον</td><td>λελυμένην</td><td>λελυμένον</td></tr>
+              <tr><td class="case-label">Nom Pl</td><td>λελυμένοι</td><td>λελυμέναι</td><td>λελυμένα</td></tr>
+              <tr><td class="case-label">Gen Pl</td><td>λελυμένων</td><td>λελυμένων</td><td>λελυμένων</td></tr>
+              <tr><td class="case-label">Dat Pl</td><td>λελυμένοις</td><td>λελυμέναις</td><td>λελυμένοις</td></tr>
+              <tr><td class="case-label">Acc Pl</td><td>λελυμένους</td><td>λελυμένας</td><td>λελυμένα</td></tr>
+            </tbody>
+          </table>
+          <div class="tip">2-1-2 pattern + reduplication. Endings identical to Present Mid/Pass. Memory forms: <strong>λελυμένος, λελυμένη, λελυμένον / λελυμένου, λελυμένης, λελυμένου</strong></div>
+        </div>
+      </details>
+    </div>
+
+    <!-- Summary cards -->
+    <div class="summary-cards">
+      <div class="card">
+        <h3>🟦 Active & Aorist Passive</h3>
+        <p>Use the <strong>3-1-3</strong> pattern (like πᾶς, πᾶσα, πᾶν).</p>
+      </div>
+      <div class="card">
+        <h3>🟩 All Middle Forms</h3>
+        <p>Use the <strong>2-1-2</strong> pattern (like καλός, καλή, καλόν).</p>
+      </div>
+      <div class="card">
+        <h3>🟧 Perfect Forms</h3>
+        <p>Marked by <strong>reduplication</strong>. Perfect Mid/Pass endings = Present Mid/Pass.</p>
+      </div>
+      <div class="card">
+        <h3>🔑 2nd Aorist Tip</h3>
+        <p>Look almost identical to Present forms — the <strong>stem</strong> is the only difference.</p>
+      </div>
+    </div>
+
+    <footer>
+      Memory-oriented chart for reading Koine Greek · Focus on Nom. + Gen. Sg. first · Click any section to expand full paradigm
+    </footer>
+  </div>
+</body>
+</html>

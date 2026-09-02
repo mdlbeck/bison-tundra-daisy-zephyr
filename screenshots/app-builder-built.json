@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Metochē",
+      "hasCanvas": false,
+      "bodyTextLen": 2067,
+      "bodyTextHash": "6a08edb3e8c063079170822b205a28f8f857b0f2a21d3f3ef21b8637c58cc40a",
+      "bodyTextPrefix": "Metochē Koine participle trainer Chart Games Progress Memory cha",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Metochē",
+      "hasCanvas": false,
+      "bodyTextLen": 2067,
+      "bodyTextHash": "6a08edb3e8c063079170822b205a28f8f857b0f2a21d3f3ef21b8637c58cc40a",
+      "bodyTextPrefix": "Metochē Koine participle trainer Chart Games Progress Memory cha",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
